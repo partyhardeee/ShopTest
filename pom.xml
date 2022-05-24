@@ -12,7 +12,7 @@
         <aspectj.version>1.8.10</aspectj.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <suiteXmlFile>C:\Users\Nikita\IdeaProjects\ShopTest\testng.xml</suiteXmlFile>
+        <suiteXmlFile>C:\Users\User\IdeaProjects\ShopTest\testng.xml</suiteXmlFile>
         <allure.version>{latest-allure-version}</allure.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>    </properties>
@@ -51,7 +51,7 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <suiteXmlFiles>C:\Users\Nikita\IdeaProjects\ShopTest\testng.xml</suiteXmlFiles>
+                    <suiteXmlFiles>C:\Users\User\IdeaProjects\ShopTest\testng.xml</suiteXmlFiles>
                     <testSourceDirectory>ShopTest\target\surefire-reports</testSourceDirectory>
                 </configuration>
                 <dependencies>

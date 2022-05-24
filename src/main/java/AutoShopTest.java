@@ -6,13 +6,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.nio.charset.Charset;
 import java.time.Duration;
+import java.util.Random;
 
 
 public class AutoShopTest {
     public static WebDriver driver;
     public static LoginPage LoginPage;
     public static ProductPage Productpage;
+    private String generatedUsername;
 
     @BeforeClass
     public static void setup() {
@@ -25,25 +29,24 @@ public class AutoShopTest {
         WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@id='nava']"))));
     }
-
     @Test
     public void test1() throws InterruptedException {
-        LoginPage.LogIn("username111321", "password");
+        LoginPage.SignUp();
     }
-
     @Test
     public void test2() throws InterruptedException {
-        LoginPage.ToPhone();
-        Productpage.AddCard();
-        Productpage.comparePrice();
-        LoginPage.LogOut();
+        LoginPage.LogIn();
     }
 
     @Test
     public void test3() throws InterruptedException {
-        LoginPage.LogIn("username111321", "password");
-
+        LoginPage.ToPhone();
+        Productpage.AddCard();
+        Productpage.comparePrice();
+        Productpage.toMain();
+        LoginPage.LogOut();
     }
+
 
     @AfterClass
     public static void down() {

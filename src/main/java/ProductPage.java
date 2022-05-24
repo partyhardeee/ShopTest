@@ -20,6 +20,11 @@ public class ProductPage {
     @FindBy(xpath = "//a[@id='cartur']")
     private WebElement cart;
 
+    @FindBy(xpath = "//a[normalize-space()='Delete']")
+    private WebElement delelement;
+
+    @FindBy(xpath ="//a[@id='nava']")
+    private WebElement mainpage;
 
 
     @Step("Добавление продукта в корзину")
@@ -37,6 +42,15 @@ public class ProductPage {
     String productprice = driver.findElement(By.xpath("//td[normalize-space()='360']")).getText();
     String totalprice = driver.findElement(By.xpath("//h3[@id='totalp']")).getText();
         Assert.assertEquals(productprice, totalprice);
+        Thread.sleep(1000);
+        delelement.click();
+        Thread.sleep(2000);
+    }
+    @Step("Переход на главную страницу")
+    public void toMain() throws InterruptedException {
+    mainpage.click();
+    Thread.sleep(1000);
+
     }
 
     }

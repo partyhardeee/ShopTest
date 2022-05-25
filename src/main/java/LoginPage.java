@@ -49,7 +49,10 @@ public class LoginPage {
     private WebElement clickonphone;
 
     @Step("Регистрация")
-    public void SignUp() throws InterruptedException{
+    public void signUp() throws InterruptedException{
+        /*
+           Создается рандомный логин из 7 букв для регистрации на сайте
+        */
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
@@ -61,6 +64,9 @@ public class LoginPage {
         }
         randomString = sb.toString();
 
+        /*
+           Переключение между окнами
+        */
         String parentWindowHandler = driver.getWindowHandle();
         String subWindowHandler = null;
         Set<String> handles = driver.getWindowHandles();
@@ -69,23 +75,27 @@ public class LoginPage {
             subWindowHandler = iterator.next();
         }
 
+
         signupbutton.click();
-        Thread.sleep(1000);
+            Thread.sleep(1000);
         driver.switchTo().window(subWindowHandler);
         signusername.sendKeys(randomString);
         signpassword.sendKeys("password");
         signupClick.click();
-        Thread.sleep(1000);
+            Thread.sleep(1000);
+
         Alert simpleAlert = driver.switchTo().alert();
         simpleAlert.accept();
-        Thread.sleep(1000);
+            Thread.sleep(1000);
+
         driver.switchTo().window(parentWindowHandler);
-        Thread.sleep(1000);
-    }
+            Thread.sleep(1000);}
 
     @Step("Вход в аккаунт")
-    public void LogIn() throws InterruptedException {
-
+    public void logIn() throws InterruptedException {
+        /*
+           Переключение между окнами
+        */
         String parentWindowHandler = driver.getWindowHandle();
         String subWindowHandler = null;
         Set<String> handles = driver.getWindowHandles();
@@ -93,26 +103,26 @@ public class LoginPage {
         while (iterator.hasNext()){
             subWindowHandler = iterator.next();
         }
+
         driver.switchTo().window(subWindowHandler);
         login.click();
-        Thread.sleep(2000);
+            Thread.sleep(2000);
         user.sendKeys(randomString);
         pass.sendKeys("password");
-        Thread.sleep(2000);
+            Thread.sleep(2000);
         loginButton.click();
         driver.switchTo().window(parentWindowHandler);
-        Thread.sleep(2000);
-    }
-    @Step("Выход из аккаунта")
-    public void LogOut() throws InterruptedException {
-        logout.click();
-        Thread.sleep(2000);
+            Thread.sleep(2000);
     }
 
+    @Step("Выход из аккаунта")
+    public void logOut() throws InterruptedException {
+        logout.click();
+            Thread.sleep(2000);}
+
     @Step("Переход на страницу товара")
-    public void ToPhone() throws InterruptedException {
+    public void toPhone() throws InterruptedException {
         clickonphone.click();
-        Thread.sleep(2000);
-    }
+        Thread.sleep(2000);}
 
 }

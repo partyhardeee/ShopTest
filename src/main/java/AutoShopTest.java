@@ -3,20 +3,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.nio.charset.Charset;
 import java.time.Duration;
-import java.util.Random;
 
 
 public class AutoShopTest {
     public static WebDriver driver;
     public static LoginPage LoginPage;
     public static ProductPage Productpage;
-    private String generatedUsername;
+    public static CartPage CartPage;
 
     @BeforeClass
     public static void setup() {
@@ -31,23 +27,23 @@ public class AutoShopTest {
     }
     @Test
     public void test1() throws InterruptedException {
-        LoginPage.SignUp();
+        //Регистрация
+        LoginPage.signUp();
     }
     @Test
     public void test2() throws InterruptedException {
-        LoginPage.LogIn();
+        //Залогинивание под созданным аккаунтом
+        LoginPage.logIn();
     }
 
     @Test
     public void test3() throws InterruptedException {
-        LoginPage.ToPhone();
-        Productpage.AddCard();
-        Productpage.comparePrice();
+        LoginPage.toPhone();
+        Productpage.addCard();
+        CartPage.comparePrice();
         Productpage.toMain();
-        LoginPage.LogOut();
+        LoginPage.logOut();
     }
-
-
     @AfterClass
     public static void down() {
         driver.quit();}}

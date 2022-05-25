@@ -1,3 +1,4 @@
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,6 +20,7 @@ public class AutoShopTest {
         System.setProperty("webdriver.chrome.driver", "C:\\Driver\\chromedriver.exe");
         driver = new ChromeDriver();
         LoginPage = new LoginPage(driver);
+        CartPage = new CartPage(driver);
         Productpage = new ProductPage(driver);
         driver.manage().window().maximize();
         driver.get("https://www.demoblaze.com/index.html");

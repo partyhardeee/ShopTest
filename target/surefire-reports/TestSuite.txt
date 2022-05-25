@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 41.174 s - in TestSuite
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 23.544 s <<< FAILURE! - in TestSuite
+AutoShopTest.test3  Time elapsed: 5.561 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "CartPage.comparePrice()" because "AutoShopTest.CartPage" is null
+	at AutoShopTest.test3(AutoShopTest.java:43)
+

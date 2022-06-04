@@ -49,8 +49,8 @@ public class LoginPage {
     @FindBy(xpath = "//a[@id='logout2']")
     private WebElement logout;
 
-    @FindBy(xpath = "//a[normalize-space()='Samsung galaxy s6']")
-    private WebElement clickonphone;
+    @FindBy(xpath = "/html[1]/body[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h4[1]/a[1]")
+    private WebElement fisrtthing;
 
     @Step("Регистрация")
     public void signUp() throws InterruptedException{
@@ -123,8 +123,8 @@ public class LoginPage {
             Thread.sleep(2000);}
 
     @Step("Переход на страницу товара")
-    public void toPhone() throws InterruptedException {
-        clickonphone.click();
+    public void toGood() throws InterruptedException {
+        fisrtthing.click();
         Thread.sleep(2000);}
 
 }

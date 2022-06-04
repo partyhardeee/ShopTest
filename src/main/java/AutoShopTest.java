@@ -40,7 +40,7 @@ public class AutoShopTest {
 
     @Test
     public void test3() throws InterruptedException {
-        LoginPage.toPhone();
+        LoginPage.toGood();
         Productpage.addCard();
         CartPage.comparePrice();
         Productpage.toMain();
@@ -48,7 +48,8 @@ public class AutoShopTest {
 
     @Test
     public void test4() throws InterruptedException {
-        Productpage.addMonitor();
+        Productpage.toMonitor();
+        LoginPage.toGood();
         Productpage.addCard();
         CartPage.comparePrice();
         Productpage.toMain();

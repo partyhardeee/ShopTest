@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-ShopTest" class="navigator-link">
-              <span class="suite-name border-failed">ShopTest</span>
+              <span class="suite-name border-passed">ShopTest</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,21 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-ShopTest" class="hide-methods failed suite-ShopTest"> (hide)</a> <!-- hide-methods failed suite-ShopTest -->
-                      <a href="#" panel-name="suite-ShopTest" class="show-methods failed suite-ShopTest"> (show)</a> <!-- show-methods failed suite-ShopTest -->
-                    </span>
-                    <div class="method-list-content failed suite-ShopTest">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-ShopTest" title="AutoShopTest" class="method navigator-link" hash-for-method="test3">test3</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-ShopTest -->
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -126,6 +112,16 @@
                         <a href="#" panel-name="suite-ShopTest" title="AutoShopTest" class="method navigator-link" hash-for-method="test2">test2</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShopTest" title="AutoShopTest" class="method navigator-link" hash-for-method="test3">test3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-ShopTest" title="AutoShopTest" class="method navigator-link" hash-for-method="test4">test4</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content passed suite-ShopTest -->
                   </li>
                 </ul>
@@ -138,26 +134,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-ShopTest" class="panel ShopTest">
-          <div class="suite-ShopTest-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">AutoShopTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="test3">
-                  </a> <!-- test3 -->
-                  <span class="method-name">test3</span>
-                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;CartPage.comparePrice()&quot; because &quot;AutoShopTest.CartPage&quot; is null
-	at AutoShopTest.test3(AutoShopTest.java:43)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 31 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-ShopTest-class-failed -->
           <div class="suite-ShopTest-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -176,6 +152,20 @@
                   <a name="test2">
                   </a> <!-- test2 -->
                   <span class="method-name">test2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test3">
+                  </a> <!-- test3 -->
+                  <span class="method-name">test3</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test4">
+                  </a> <!-- test4 -->
+                  <span class="method-name">test4</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -197,6 +187,7 @@
           &lt;include name=&quot;test1&quot;/&gt;
           &lt;include name=&quot;test2&quot;/&gt;
           &lt;include name=&quot;test3&quot;/&gt;
+          &lt;include name=&quot;test4&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- AutoShopTest --&gt;
     &lt;/classes&gt;
@@ -238,24 +229,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'test2')
+data.setCell(0, 1, 'test4')
 data.setCell(0, 2, 'AutoShopTest')
-data.setCell(0, 3, 6271);
+data.setCell(0, 3, 13129);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'test3')
 data.setCell(1, 2, 'AutoShopTest')
-data.setCell(1, 3, 5552);
+data.setCell(1, 3, 12848);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'test1')
+data.setCell(2, 1, 'test2')
 data.setCell(2, 2, 'AutoShopTest')
-data.setCell(2, 3, 4515);
+data.setCell(2, 3, 5050);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'test1')
+data.setCell(3, 2, 'AutoShopTest')
+data.setCell(3, 3, 4504);
 window.suiteTableData['ShopTest']= { tableData: data, tableDiv: 'times-div-ShopTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 16 seconds</span>
+              <span class="suite-total-time">Total running time: 35 seconds</span>
               <div id="times-div-ShopTest">
               </div> <!-- times-div-ShopTest -->
             </div> <!-- times-div -->
@@ -288,21 +283,23 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">test1</span>
-                <span class="method-start">5158 ms</span>
+                <span class="method-start">4419 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">test2</span>
-                <span class="method-start">9763 ms</span>
+                <span class="method-start">9075 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">test3</span>
-                <span class="method-start">16046 ms</span>
+                <span class="method-start">14135 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test4</span>
+                <span class="method-start">26986 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">down</span>
-                <span class="method-start">21607 ms</span>
+                <span class="method-start">40125 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

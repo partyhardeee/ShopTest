@@ -1,9 +1,15 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.Alert;
 import io.qameta.allure.Step;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 public class ProductPage {
 
     public WebDriver driver;
@@ -18,6 +24,9 @@ public class ProductPage {
     @FindBy(xpath ="//a[@id='nava']")
     private WebElement mainpage;
 
+    @FindBy(xpath = "//a[normalize-space()='Apple monitor 24']")
+    private WebElement manclick;
+
 
     @Step("Добавление продукта в корзину")
     public void addCard() throws InterruptedException {
@@ -26,6 +35,16 @@ public class ProductPage {
         Alert simpleAlert = driver.switchTo().alert();
         simpleAlert.accept();
         Thread.sleep(2000);
+    }
+    @Step("Переход на страницу монитора")
+    public void addMonitor() throws InterruptedException {
+
+        driver.findElement(By.xpath("//a[4]")).click();
+        WebElement monpage = (new WebDriverWait(driver, Duration.ofSeconds(20))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[normalize-space()='Apple monitor 24']"))));
+        manclick.click();
+        Thread.sleep(2000);
+
     }
 
     @Step("Переход на главную страницу")

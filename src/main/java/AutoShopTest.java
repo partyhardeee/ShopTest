@@ -44,7 +44,15 @@ public class AutoShopTest {
         Productpage.addCard();
         CartPage.comparePrice();
         Productpage.toMain();
-        LoginPage.logOut();
+    }
+
+    @Test
+    public void test4() throws InterruptedException {
+        Productpage.addMonitor();
+        Productpage.addCard();
+        CartPage.comparePrice();
+        Productpage.toMain();
+
     }
     @AfterClass
     public static void down() {

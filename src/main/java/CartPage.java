@@ -24,7 +24,7 @@ public class CartPage {
     public void comparePrice() throws InterruptedException {
         cart.click();
         Thread.sleep(2000);
-        String productprice = driver.findElement(By.xpath("//td[normalize-space()='360']")).getText();
+        String productprice = driver.findElement(By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]")).getText();
         String totalprice = driver.findElement(By.xpath("//h3[@id='totalp']")).getText();
         Assert.assertEquals(productprice, totalprice);
         Thread.sleep(1000);

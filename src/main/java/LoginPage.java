@@ -1,10 +1,14 @@
 import io.qameta.allure.Step;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
@@ -63,7 +67,6 @@ public class LoginPage {
             sb.append(randomChar);
         }
         randomString = sb.toString();
-
         /*
            Переключение между окнами
         */
@@ -74,8 +77,6 @@ public class LoginPage {
         while (iterator.hasNext()){
             subWindowHandler = iterator.next();
         }
-
-
         signupbutton.click();
             Thread.sleep(1000);
         driver.switchTo().window(subWindowHandler);
@@ -106,7 +107,8 @@ public class LoginPage {
 
         driver.switchTo().window(subWindowHandler);
         login.click();
-            Thread.sleep(2000);
+            WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(user)));
         user.sendKeys(randomString);
         pass.sendKeys("password");
             Thread.sleep(2000);

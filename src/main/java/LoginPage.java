@@ -124,6 +124,8 @@ public class LoginPage {
 
     @Step("Переход на страницу товара")
     public void toGood() throws InterruptedException {
+        WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(fisrtthing)));
         fisrtthing.click();
         Thread.sleep(2000);}
 

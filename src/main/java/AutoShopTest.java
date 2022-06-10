@@ -55,6 +55,17 @@ public class AutoShopTest {
         Productpage.toMain();
 
     }
+    @Test
+    public void test5() throws InterruptedException {
+        LoginPage.toGood();
+        Productpage.addCard();
+        Productpage.toMain();
+        Productpage.toMonitor();
+        LoginPage.toGood();
+        Productpage.addCard();
+        CartPage.manyPrice();
+        Productpage.toMain();
+    }
     @AfterClass
     public static void down() {
         driver.quit();}}

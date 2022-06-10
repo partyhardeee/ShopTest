@@ -4,7 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class CartPage {
 
@@ -30,5 +34,20 @@ public class CartPage {
         Thread.sleep(1000);
         delelement.click();
         Thread.sleep(1000);
+
     }
-}
+    @Step("Сравнение цены товара и цены корзины")
+    public void manyPrice() throws InterruptedException {
+        cart.click();
+        Thread.sleep(2000);
+        String productprice1 = driver.findElement(By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]")).getText();
+        String productprice2 = driver.findElement(By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[3]")).getText();
+        String totalprice = driver.findElement(By.xpath("//h3[@id='totalp']")).getText();
+        Integer intprice = Integer.parseInt(totalprice);
+        Integer twoprices = Integer.parseInt(productprice1) + Integer.parseInt(productprice2);
+
+        Assert.assertEquals(twoprices, intprice);
+        Thread.sleep(1000);
+        delelement.click();
+        Thread.sleep(1000);
+}}

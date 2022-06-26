@@ -52,11 +52,11 @@ public class LoginPage {
     @FindBy(xpath = "/html[1]/body[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h4[1]/a[1]")
     private WebElement fisrtthing;
 
-    @Step("Регистрация")
-    public void signUp() throws InterruptedException{
-        /*
-           Создается рандомный логин из 7 букв для регистрации на сайте
-        */
+    /* @Step("Регистрация")
+     public void signUp() throws InterruptedException{
+
+          // Создается рандомный логин из 7 букв для регистрации на сайте
+
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
@@ -67,9 +67,6 @@ public class LoginPage {
             sb.append(randomChar);
         }
         randomString = sb.toString();
-        /*
-           Переключение между окнами
-        */
         String parentWindowHandler = driver.getWindowHandle();
         String subWindowHandler = null;
         Set<String> handles = driver.getWindowHandles();
@@ -90,10 +87,10 @@ public class LoginPage {
             Thread.sleep(1000);
 
         driver.switchTo().window(parentWindowHandler);
-            Thread.sleep(1000);}
+            Thread.sleep(1000);}    */
 
     @Step("Вход в аккаунт")
-    public void logIn() throws InterruptedException {
+    public void logIn(String log, String password) throws InterruptedException {
         /*
            Переключение между окнами
         */
@@ -109,8 +106,8 @@ public class LoginPage {
         login.click();
             WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(user)));
-        user.sendKeys(randomString);
-        pass.sendKeys("password");
+        user.sendKeys(log);
+        pass.sendKeys(password);
             Thread.sleep(2000);
         loginButton.click();
         driver.switchTo().window(parentWindowHandler);

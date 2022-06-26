@@ -27,15 +27,15 @@ public class AutoShopTest {
         WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@id='nava']"))));
     }
-    @Test
+    /* @Test
     public void test1() throws InterruptedException {
         //Регистрация
         LoginPage.signUp();
-    }
+    } */
     @Test
     public void test2() throws InterruptedException {
         //Залогинивание под созданным аккаунтом
-        LoginPage.logIn();
+        LoginPage.logIn("username111321", "password");
     }
 
     @Test

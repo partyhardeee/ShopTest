@@ -35,16 +35,13 @@ public class ProductPage {
 
     @Step("Переход на страницу монитора")
     public void toMonitor() throws InterruptedException {
-
         driver.findElement(By.xpath("//a[4]")).click();
         Thread.sleep(1000);
-
     }
 
     @Step("Переход на главную страницу")
     public void toMain() throws InterruptedException {
-    mainpage.click();
-    Thread.sleep(1000);}
-
+        mainpage.click();
+        Thread.sleep(1000);}
     }
 

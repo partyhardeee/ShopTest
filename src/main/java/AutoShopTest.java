@@ -1,4 +1,3 @@
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,19 +26,15 @@ public class AutoShopTest {
         WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@id='nava']"))));
     }
-    /* @Test
-    public void test1() throws InterruptedException {
-        //Регистрация
-        LoginPage.signUp();
-    } */
+
     @Test
-    public void test2() throws InterruptedException {
+    public void test1() throws InterruptedException {
         //Залогинивание под созданным аккаунтом
         LoginPage.logIn("username111321", "password");
     }
 
     @Test
-    public void test3() throws InterruptedException {
+    public void test2() throws InterruptedException {
         LoginPage.toGood();
         Productpage.addCard();
         CartPage.comparePrice();
@@ -47,7 +42,7 @@ public class AutoShopTest {
     }
 
     @Test
-    public void test4() throws InterruptedException {
+    public void test3() throws InterruptedException {
         Productpage.toMonitor();
         LoginPage.toGood();
         Productpage.addCard();
@@ -56,7 +51,7 @@ public class AutoShopTest {
 
     }
     @Test
-    public void test5() throws InterruptedException {
+    public void test4() throws InterruptedException {
         LoginPage.toGood();
         Productpage.addCard();
         Productpage.toMain();

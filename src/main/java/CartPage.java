@@ -4,11 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import java.time.Duration;
 
 public class CartPage {
 
@@ -46,7 +42,6 @@ public class CartPage {
         String totalprice = driver.findElement(By.xpath("//h3[@id='totalp']")).getText();
         Integer intprice = Integer.parseInt(totalprice);
         Integer twoprices = Integer.parseInt(productprice1) + Integer.parseInt(productprice2);
-
         Assert.assertEquals(twoprices, intprice);
         Thread.sleep(1000);
         if (driver.findElement(By.xpath("//a[normalize-space()='Delete']")).isDisplayed()){

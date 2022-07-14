@@ -1,16 +1,12 @@
 import io.qameta.allure.Step;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.Iterator;
-import java.util.Random;
 import java.util.Set;
 
 public class LoginPage {
@@ -52,42 +48,6 @@ public class LoginPage {
     @FindBy(xpath = "/html[1]/body[1]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h4[1]/a[1]")
     private WebElement fisrtthing;
 
-    /* @Step("Регистрация")
-     public void signUp() throws InterruptedException{
-
-          // Создается рандомный логин из 7 букв для регистрации на сайте
-
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        StringBuilder sb = new StringBuilder();
-        Random random = new Random();
-        int length = 7;
-        for(int i = 0; i < length; i++) {
-            int index = random.nextInt(alphabet.length());
-            char randomChar = alphabet.charAt(index);
-            sb.append(randomChar);
-        }
-        randomString = sb.toString();
-        String parentWindowHandler = driver.getWindowHandle();
-        String subWindowHandler = null;
-        Set<String> handles = driver.getWindowHandles();
-        Iterator<String> iterator = handles.iterator();
-        while (iterator.hasNext()){
-            subWindowHandler = iterator.next();
-        }
-        signupbutton.click();
-            Thread.sleep(1000);
-        driver.switchTo().window(subWindowHandler);
-        signusername.sendKeys(randomString);
-        signpassword.sendKeys("password");
-        signupClick.click();
-            Thread.sleep(1000);
-
-        Alert simpleAlert = driver.switchTo().alert();
-        simpleAlert.accept();
-            Thread.sleep(1000);
-
-        driver.switchTo().window(parentWindowHandler);
-            Thread.sleep(1000);}    */
 
     @Step("Вход в аккаунт")
     public void logIn(String log, String password) throws InterruptedException {
@@ -112,12 +72,12 @@ public class LoginPage {
         loginButton.click();
         driver.switchTo().window(parentWindowHandler);
             Thread.sleep(2000);
-    }
+        }
 
     @Step("Выход из аккаунта")
     public void logOut() throws InterruptedException {
         logout.click();
-            Thread.sleep(2000);}
+        Thread.sleep(2000);}
 
     @Step("Переход на страницу товара")
     public void toGood() throws InterruptedException {
@@ -126,4 +86,4 @@ public class LoginPage {
         fisrtthing.click();
         Thread.sleep(2000);}
 
-}
+    }

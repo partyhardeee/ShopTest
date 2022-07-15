@@ -55,7 +55,9 @@ public class CartPage {
         Integer intprice = Integer.parseInt(totalprice);
         Integer twoprices = Integer.parseInt(productprice1) + Integer.parseInt(productprice2);
         Assert.assertEquals(twoprices, intprice);
-        if (driver.findElement(By.xpath("//a[normalize-space()='Delete']")).isDisplayed()){
-            delelement.click();
-            Thread.sleep(1000);}
+        WebElement element2 = (new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(delelement)));
+        delelement.click();
+        Thread.sleep(2000);
+        delelement.click();
 }}

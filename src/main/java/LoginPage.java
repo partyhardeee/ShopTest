@@ -1,4 +1,5 @@
 import io.qameta.allure.Step;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
+
+import static org.testng.AssertJUnit.fail;
 
 public class LoginPage {
 
@@ -68,22 +71,25 @@ public class LoginPage {
                 .until(ExpectedConditions.visibilityOf(user)));
         user.sendKeys(log);
         pass.sendKeys(password);
-            Thread.sleep(2000);
+        WebElement element1 = (new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(loginButton)));
         loginButton.click();
         driver.switchTo().window(parentWindowHandler);
             Thread.sleep(2000);
         }
 
+
+
     @Step("Выход из аккаунта")
     public void logOut() throws InterruptedException {
-        logout.click();
-        Thread.sleep(2000);}
+        WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(logout)));
+        logout.click();}
 
     @Step("Переход на страницу товара")
     public void toGood() throws InterruptedException {
         WebElement element = (new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(fisrtthing)));
-        fisrtthing.click();
-        Thread.sleep(2000);}
+        fisrtthing.click();}
 
     }
